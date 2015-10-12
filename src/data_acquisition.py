@@ -1,3 +1,5 @@
+import hashlib
+
 """
 This module contains functions for downloading and verifying data from
 the internet.
@@ -73,7 +75,10 @@ def verify_data(data, known_checksum):
     ----
     Check out the hashlib module
     """
-    return NotImplemented
+    m = hashlib.sha1(data).hexdigest()
+    if m == (known_checksum):
+        return True
+    return False
         
 def load_parsed_data(fname):
     """
